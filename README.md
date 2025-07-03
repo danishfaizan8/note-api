@@ -29,32 +29,40 @@ git clone https://github.com/danishfaizan8/note-api.git
 cd note-api
 
 ## 2. Build and Run
+```
 ./mvnw spring-boot:run
-
+```
 🔄 The app will run on:
+```
 http://localhost:8081
-
+```
 # 🔐 Authentication Flow
 ## ➕ Register
 
 POST /auth/register
 ## Body (JSON):
+```
 {
   "username": "john",
   "password": "secret123"
 }
+```
 
 ## 🔑 Login
 POST /auth/login
 ## Body (JSON):
+```
 {
   "username": "john",
   "password": "secret123"
 }
+```
 ## Response:
+```
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR..."
 }
+```
 ## ✅ Save this token and add it in Postman → Headers:
 Authorization: Bearer <token>
 
@@ -64,15 +72,18 @@ POST /notes
 
 Headers: Authorization: Bearer <token>
 Body:
+```
 {
   "title": "First Note",
   "content": "This is my first secure note!"
 }
+```
 ## 📖 Get All Notes
 
 GET /notes
 
 ## Returns:
+```
 [
   {
     "id": 1,
@@ -80,22 +91,26 @@ GET /notes
     "content": "This is my first secure note!"
   }
 ]
+```
 
 ## ✏️ Update Note
-
+```
 PUT /notes/{id}
+```
 
 Example: PUT /notes/1
 
 Body:
+```
 {
   "title": "Updated Title",
   "content": "Today I built Note Keeper API with JWT and validation!"
 }
+```
 ## ❌ Delete Note
-
+```
 DELETE /notes/{id}
-
+```
 Example: DELETE /notes/1
 
 # ✅ Sample Test Run Steps (Postman)
@@ -130,8 +145,8 @@ Delete Note:
 DELETE http://localhost:8081/notes/1
 
 ## 🧪 Running Tests
-
+```
 ./mvnw test
 
-
+```
 
